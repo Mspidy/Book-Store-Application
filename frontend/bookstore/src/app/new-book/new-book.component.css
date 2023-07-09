@@ -1,0 +1,97 @@
+table{
+    color: #FFFFFF;
+    margin-top: 50px;
+}
+
+table td{
+    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+button{
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.new_blog{
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+}
+
+.new_blog img{
+    font-size: 5px;
+}
+
+.new_blog p{
+    margin-left: 20px;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.new_blog_details{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.new_blog_details p{
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.new_blog_details img{
+    width: 100%;
+    height: 100%;
+}
+
+.image_add_blog{
+    background-color: #FFF;
+    margin-bottom: 16px;
+    width: 47%;
+    height: 150px;
+}
+.blog_img_add{
+    max-width: 400px;
+    border: 2px dashed #C9CACD;
+    border-radius: 10px;
+    background-color: #FFF;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.post_form_group+ .post_form_group{
+    margin-top: 30px;
+    color: #FFFFFF;
+}
+
+.post_form_group p{
+    display: flex;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.pf_label_form{
+    letter-spacing: 0.32px;
+    color: #738499;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input_field_blog{
+    background-color: #FFF;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+}

@@ -1,0 +1,103 @@
+<app-navigation></app-navigation>
+<div class="content vh-100 p-0">
+    <div class="container" *ngIf="mainBlog">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" (click)="createBlog()">Add New Book</button>
+            </div>
+            <div class="col-sm-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sr.No.</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Publication Date</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let book of AllBooks; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{book.id}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.author}}</td>
+                            <td>{{book.publication_date}}</td>
+                            <td>{{book.price}}</td>
+                            <td>
+                                <a style="color: green;" type="button">Edit</a>
+                                &nbsp;
+                                <a style="color: red;" type="button"  data-bs-toggle="modal"
+                                data-bs-target="#delete_job_modal" (click)="deleteBook(book)">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" *ngIf="newBlog">
+        <div class="row">
+            <div class="new_blog">
+                <img src="https://img.icons8.com/fluency/48/null/circled-left-2.png" (click)="mainPage()" type="button"/>
+                <p>Add New Book</p>
+            </div>
+            <form [formGroup]="newBooks" enctype="multipart/form-data">
+                <div class="new_blog_details">
+                    <p>Enter the following details:</p>
+                    <div class="image_add_blog blog_img_add">
+                        <img alt="">
+                    </div>
+                    <div class="post_form_group">
+                        <input type="file" name="image" style="color: #FFF;" (change)="onFileChanged($event)">
+                        <p>Image Dimensions: 490 x 217</p>
+                        <p>Please upload under 400kb</p>
+                    </div>
+                    <div class="post_form_group">
+                        <p class="pf_label_form">Book Title</p>
+                        <input class="input_field_blog" type="text" placeholder="Enter Book Title" formControlName="bookTitle">
+                    </div>
+                    <div class="post_form_group">
+                        <p class="pf_label_form">Book Author</p>
+                        <input class="input_field_blog" type="text" placeholder="Enter Book Author" formControlName="bookAuthor">
+                    </div>
+                    <div class="post_form_group">
+                        <p class="pf_label_form">Publication Date</p>
+                        <input class="input_field_blog" type="date" placeholder="Enter Pulish Date" formControlName="publishDate">
+                    </div>
+                    <div class="post_form_group">
+                        <p class="pf_label_form">Book Price</p>
+                        <input class="input_field_blog" type="number" placeholder="Enter Book Price" formControlName="bookPrice">
+                    </div>
+                    <div class="post_form_group">
+                        <button class="btn btn-primary" (click)="saveblogs()">Save Book</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- (change)="onFileChange($event, 'blogimage')" -->
+</div>
+
+<div class="modal fade" id="delete_job_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body delete_modal_body">
+                <button type="button" class="btn-close delete_close_btn" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                <p class="aye_you_sure">Are you sure?</p>
+                <p class="do_you_text">Do you really want to delete this blog? This process cannot be undone.</p>
+            </div>
+            <div class="modal-footer delete_modal_footer">
+                <button type="button" class="btn post_delete_Cancel_btn" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn delete_delete_btn">Delete Job</button>
+            </div>
+        </div>
+    </div>
+</div>
+

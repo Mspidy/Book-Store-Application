@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+<div class="content vh-100 p-0">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <h2 class="newsheading" style="color: rgb(83, 109, 174);">Book Store <span style="color: rgb(83, 109, 174);">Collection</span></h2>
+            </div>
+            <section class="ourNews">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="news-box">
+                                <div class="tag-sections">
+                                    <p class="popular_tag">Popular tags:</p>
+                                    <nav class="nav tag_nav">
+                                        <a class="nav-link" type="button" id="searchTechnology">ALL</a>
+                                        <a class="nav-link" type="button" id="searchTechnology" style="background-color: rgb(83, 73, 133); border-radius: 12px;">Books</a>
+                                        <a class="nav-link" type="button">COMMODITY</a>
+                                        <a class="nav-link" type="button">TRANSIT</a>
+                                        <a class="nav-link" type="button">EXPORT</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="news" *ngFor="let res of AllBooks | paginate:{itemsPerPage:9, currentPage:p}">
+                <img class="img"
+                    src="assets/demo.png" />
+                <div class="date_techno">
+                    <a class="tech_tag" type="button" style="color: #FFFFFF;">{{res.author}}</a>
+                    <span class="date_text" style="color: #FFFFFF;">{{res.publication_date}}</span>
+                </div>
+                <h4 class="news-heading" style="color: #FFFFFF;">{{res.title}}</h4>
+                <p class="news-heading" style="color: #FFFFFF;">{{res.price}}</p>
+                <a class="learn_btn_two" href="" type="button">Read More</a>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="p= $event" class="pagination"></pagination-controls>
+    </div>
+</div>
+
